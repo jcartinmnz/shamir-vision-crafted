@@ -1,12 +1,37 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import Header from "@/components/Header";
+import Hero from "@/components/Hero";
+import Benefits from "@/components/Benefits";
+import VideoSection from "@/components/VideoSection";
+import Stats from "@/components/Stats";
+import ExperienceDifference from "@/components/ExperienceDifference";
+import LensSelector from "@/components/LensSelector";
+import Testimonials from "@/components/Testimonials";
+import AddOns from "@/components/AddOns";
+import JourneyTiles from "@/components/JourneyTiles";
+import ProductRange from "@/components/ProductRange";
+import SpecializedSections from "@/components/SpecializedSections";
+import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen">
+      <Header />
+      <Hero />
+      <Benefits />
+      <VideoSection />
+      <Stats />
+      <ExperienceDifference />
+      <LensSelector />
+      <Testimonials />
+      <AddOns />
+      <JourneyTiles />
+      <ProductRange />
+      <SpecializedSections />
+      <Contact />
+      <Footer />
+      <WhatsAppButton />
     </div>
   );
 };
