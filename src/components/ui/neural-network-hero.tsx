@@ -328,7 +328,7 @@ export default function NeuralNetworkHero({
     <section ref={sectionRef} className="relative h-screen w-full overflow-hidden">
       <ShaderBackground />
 
-      <div className={`relative mx-auto flex max-w-7xl flex-col items-start gap-6 px-6 pb-24 pt-36 sm:gap-8 sm:pt-44 md:px-10 lg:px-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+      <div className={`relative z-10 mx-auto flex max-w-7xl flex-col items-start gap-6 px-6 pb-24 pt-36 sm:gap-8 sm:pt-44 md:px-10 lg:px-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
         <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 backdrop-blur-sm">
           <span className="text-[10px] font-light uppercase tracking-[0.08em] text-primary">{badgeLabel}</span>
           <span className="h-1 w-1 rounded-full bg-primary" />
@@ -359,7 +359,7 @@ export default function NeuralNetworkHero({
           ))}
         </div>
 
-        <ul className="mt-8 flex flex-wrap gap-6 text-sm font-normal tracking-tight text-black">
+        <ul className="mt-8 flex flex-wrap gap-6 text-sm font-normal tracking-tight text-white">
           {microDetails.map((detail, index) => (
             <li key={index} className="flex items-center gap-2">
               <span className="h-1.5 w-1.5 rounded-full bg-primary" /> {detail}
