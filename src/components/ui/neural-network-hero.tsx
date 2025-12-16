@@ -1,9 +1,48 @@
 'use client';
 
-import { useRef, useMemo, useEffect, useState } from 'react';
+import { useRef, useMemo, useEffect, useState, Component, ReactNode } from 'react';
 import { Canvas, useFrame, extend } from '@react-three/fiber';
 import { shaderMaterial } from '@react-three/drei';
 import * as THREE from 'three';
+
+// Error boundary to catch WebGL errors
+interface ErrorBoundaryState {
+  hasError: boolean;
+}
+
+interface ErrorBoundaryProps {
+  children: ReactNode;
+  fallback: ReactNode;
+}
+
+class WebGLErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
+  constructor(props: ErrorBoundaryProps) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(): ErrorBoundaryState {
+    return { hasError: true };
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return this.props.fallback;
+    }
+    return this.props.children;
+  }
+}
+
+// Gradient fallback when WebGL is not available
+function GradientFallback() {
+  return (
+    <div className="absolute inset-0 -z-10 w-full h-full bg-gradient-to-br from-gray-900 via-red-950/30 to-black">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(220,38,38,0.15),transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(220,38,38,0.1),transparent_50%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30" />
+    </div>
+  );
+}
 
 // ===================== SHADER - Modified for Red/White/Black =====================
 const vertexShader = `
@@ -209,14 +248,16 @@ function ShaderBackground() {
   
   return (
     <div ref={canvasRef} className="bg-black absolute inset-0 -z-10 w-full h-full" aria-hidden>
-      <Canvas
-        camera={camera}
-        gl={{ antialias: true, alpha: false }}
-        dpr={[1, 2]}
-        style={{ width: '100%', height: '100%' }}
-      >
-        <ShaderPlane />
-      </Canvas>
+      <WebGLErrorBoundary fallback={<GradientFallback />}>
+        <Canvas
+          camera={camera}
+          gl={{ antialias: true, alpha: false }}
+          dpr={[1, 2]}
+          style={{ width: '100%', height: '100%' }}
+        >
+          <ShaderPlane />
+        </Canvas>
+      </WebGLErrorBoundary>
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30" />
     </div>
   );
