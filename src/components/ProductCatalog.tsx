@@ -138,11 +138,11 @@ const ProductCatalog = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+        <div className="flex flex-wrap justify-center gap-6 mb-20">
           {products.map((product) => (
             <Card 
               key={product.id} 
-              className="group border-border hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 overflow-hidden flex flex-col h-full"
+              className="group border-border hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 overflow-hidden flex flex-col h-full w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
             >
               <div className="relative h-48 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 flex items-center justify-center">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10" />
