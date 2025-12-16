@@ -359,10 +359,10 @@ export default function NeuralNetworkHero({
           ))}
         </div>
 
-        <ul className="mt-8 flex flex-wrap gap-6 text-xs font-light tracking-tight text-white/60">
+        <ul className="mt-8 flex flex-wrap gap-6 text-sm font-normal tracking-tight text-white">
           {microDetails.map((detail, index) => (
             <li key={index} className="flex items-center gap-2">
-              <span className="h-1 w-1 rounded-full bg-primary" /> {detail}
+              <span className="h-1.5 w-1.5 rounded-full bg-primary" /> {detail}
             </li>
           ))}
         </ul>
