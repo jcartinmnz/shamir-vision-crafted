@@ -1,15 +1,11 @@
 import Header from "@/components/Header";
-import Hero from "@/components/Hero";
+import NeuralNetworkHero from "@/components/ui/neural-network-hero";
 import Benefits from "@/components/Benefits";
 import VideoSection from "@/components/VideoSection";
 import Stats from "@/components/Stats";
-import ExperienceDifference from "@/components/ExperienceDifference";
-import LensSelector from "@/components/LensSelector";
+import ProductCatalog from "@/components/ProductCatalog";
 import Testimonials from "@/components/Testimonials";
-import AddOns from "@/components/AddOns";
-import JourneyTiles from "@/components/JourneyTiles";
-import ProductRange from "@/components/ProductRange";
-import SpecializedSections from "@/components/SpecializedSections";
+import FindOpticalStore from "@/components/FindOpticalStore";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -18,17 +14,23 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <Header />
-      <Hero />
+      <NeuralNetworkHero 
+        title="Visión en alta definición hecha a tu medida"
+        description="Lentes Shamir de talla digital con IA y Freeform para campos de visión más amplios, menos distorsión y máxima nitidez en todas las distancias."
+        badgeLabel="Shamir"
+        badgeText="Visión Perfecta · Toque Personal"
+        ctaButtons={[
+          { text: "Agenda tu evaluación", href: "#contacto", primary: true },
+          { text: "Descubre la gama", href: "#productos" }
+        ]}
+        microDetails={["Tecnología Freeform", "Visual AI Engine™", "Personalización Total"]}
+      />
       <Benefits />
       <VideoSection />
       <Stats />
-      <ExperienceDifference />
-      <LensSelector />
+      <ProductCatalog />
       <Testimonials />
-      <AddOns />
-      <JourneyTiles />
-      <ProductRange />
-      <SpecializedSections />
+      <FindOpticalStore />
       <Contact />
       <Footer />
       <WhatsAppButton />
