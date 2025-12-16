@@ -1,10 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Phone, Menu, X } from "lucide-react";
 import shamirLogo from "@/assets/shamir-logo.png";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navItems = [
     { name: "Inicio", href: "#inicio" },
@@ -16,15 +25,23 @@ const Header = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-black">
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
+      scrolled 
+        ? "bg-black/90 backdrop-blur-md shadow-lg shadow-black/20" 
+        : "bg-black"
+    }`}>
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="flex items-center justify-between h-20 lg:h-24">
+        <div className={`flex items-center justify-between transition-all duration-500 ${
+          scrolled ? "h-16 lg:h-20" : "h-20 lg:h-24"
+        }`}>
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
             <img 
               src={shamirLogo} 
               alt="Shamir" 
-              className="h-40 lg:h-48 w-auto"
+              className={`w-auto transition-all duration-500 ease-out ${
+                scrolled ? "h-24 lg:h-32" : "h-40 lg:h-48"
+              }`}
             />
           </div>
 
