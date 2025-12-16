@@ -28,10 +28,10 @@ const JourneyTiles = () => {
   ];
 
   return (
-    <section className="py-16 lg:py-24 bg-muted/30">
+    <section className="py-16 lg:py-24 bg-dark-surface">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl lg:text-5xl font-bold text-dark-surface-foreground mb-4">
             Tu camino empieza aquí
           </h2>
         </div>
@@ -40,15 +40,15 @@ const JourneyTiles = () => {
           {tiles.map((tile, index) => {
             const Icon = tile.icon;
             return (
-              <Card key={index} className="hover:shadow-lg transition-all">
+              <Card key={index} className="hover:shadow-lg transition-all bg-white/5 border-white/10">
                 <CardContent className="p-8 text-center">
-                  <div className="bg-primary/10 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                  <div className="bg-primary/20 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6">
                     <Icon className="h-10 w-10 text-primary" />
                   </div>
-                  <h3 className="text-2xl font-bold text-foreground mb-3">
+                  <h3 className="text-2xl font-bold text-white mb-3">
                     {tile.title}
                   </h3>
-                  <p className="text-muted-foreground mb-6">
+                  <p className="text-white/70 mb-6">
                     {tile.description}
                   </p>
                   <Button variant={tile.variant} className="w-full">

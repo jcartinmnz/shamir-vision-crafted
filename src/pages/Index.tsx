@@ -5,6 +5,7 @@ import VideoSection from "@/components/VideoSection";
 import Stats from "@/components/Stats";
 import ProductCatalog from "@/components/ProductCatalog";
 import Testimonials from "@/components/Testimonials";
+import JourneyTiles from "@/components/JourneyTiles";
 import FindOpticalStore from "@/components/FindOpticalStore";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -30,6 +31,7 @@ const Index = () => {
       <Stats />
       <ProductCatalog />
       <Testimonials />
+      <JourneyTiles />
       <FindOpticalStore />
       <Contact />
       <Footer />
