@@ -1,0 +1,67 @@
+Necesito actualizar la sección de catálogo de productos en una landing page para Shamir Optical. La estructura debe ser:
+
+DISEÑO VISUAL:
+- Crear 5 tarjetas/cards en grid responsive (2 columnas en desktop, 1 en mobile)
+- Cada card debe tener:
+  * Imagen ilustrativa superior (placeholder por ahora)
+  * Título principal en negrita
+  * Subtítulo en gris
+  * Descripción corta (2-3 líneas)
+  * Lista de beneficios con iconos de check
+  * Eslogan destacado en rojo Shamir (#E31937)
+  * Botón CTA "Más información"
+
+CATEGORÍAS DE PRODUCTOS:
+1. Alta Definición (HD)
+   - Título: "Lentes de Alta Definición"
+   - Subtítulo: "Tecnología Digital Free-Form"
+   - Eslogan: "Visión en Alta Definición Real"
+   - Beneficios: Corrección personalizada, Mayor nitidez y contraste, Campos visuales amplios, Tecnología Free-Form
+
+2. Visión Sencilla
+   - Título: "Lentes de Visión Sencilla"
+   - Subtítulo: "Claridad perfecta para una sola distancia"
+   - Eslogan: "Claridad Simple, Calidad Superior"
+   - Beneficios: Visión nítida sin distorsiones, Adaptación inmediata, Materiales ligeros, Diseños digitales
+
+3. Monofocales Digitales
+   - Título: "Lentes Monofocales Digitales"
+   - Subtítulo: "Shamir SV III As-Worn™"
+   - Eslogan: "Tu Visión, Tu Medida Exacta"
+   - Beneficios: Eye-Point Technology III, As-Worn Quadro™, Visión periférica clara, Diseño estético
+
+4. Bifocales Digitales
+   - Título: "Lentes Bifocales Digitales"
+   - Subtítulo: "Shamir Duo™ - Sin línea visible"
+   - Eslogan: "Dos Visiones, Una Experiencia Perfecta"
+   - Beneficios: Sin línea visible, Transición suave, Calidad óptica digital, Compatible con tratamientos
+
+5. Progresivos Inteligentes
+   - Título: "Lentes Progresivos Inteligentes"
+   - Subtítulo: "Autograph Intelligence™ 2.0 con IA"
+   - Eslogan: "Todas las Distancias, Una Sola Mirada"
+   - Beneficios: Visión continua, Tecnología IA, Adaptación rápida, Diseños especializados
+   - Badge: "CON INTELIGENCIA ARTIFICIAL"
+
+DESPUÉS DE LAS CARDS:
+Agregar tabla comparativa responsive con 3 columnas (Monofocales, Bifocales, Progresivos) comparando:
+- Número de distancias
+- Líneas visibles
+- Velocidad de adaptación
+- Estética
+- Casos de uso ideales
+
+ESTILO:
+- Paleta: Negro (#000000), Blanco (#FFFFFF), Rojo Shamir (#E31937)
+- Tipografía moderna y limpia
+- Espaciado generoso entre elementos
+- Hover effects sutiles en cards
+- Animaciones suaves al scroll
+
+COMPORTAMIENTO:
+- Cards con efecto hover (elevación sutil)
+- Botones con transición de color
+- Tabla responsive que se convierte en acordeón en mobile
+- Scroll reveal animations
+
+Genera el código completo en React con Tailwind CSS.
