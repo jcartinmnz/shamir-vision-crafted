@@ -24,7 +24,7 @@ const Header = () => {
             <img 
               src={shamirLogo} 
               alt="Shamir" 
-              className="h-8 lg:h-10 w-auto"
+              className="h-40 lg:h-48 w-auto"
             />
           </div>
 
