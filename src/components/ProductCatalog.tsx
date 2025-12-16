@@ -138,11 +138,11 @@ const ProductCatalog = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
           {products.map((product) => (
             <Card 
               key={product.id} 
-              className="group border-border hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 overflow-hidden"
+              className="group border-border hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 overflow-hidden flex flex-col h-full"
             >
               <div className="relative h-48 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 flex items-center justify-center">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10" />
@@ -156,7 +156,7 @@ const ProductCatalog = () => {
                 )}
               </div>
               
-              <CardContent className="p-6">
+              <CardContent className="p-6 flex flex-col flex-grow">
                 <h3 className="text-xl font-bold text-foreground mb-1">
                   {product.title}
                 </h3>
@@ -167,7 +167,7 @@ const ProductCatalog = () => {
                   {product.description}
                 </p>
                 
-                <div className="space-y-2 mb-4">
+                <div className="space-y-2 mb-4 flex-grow">
                   {product.benefits.map((benefit, idx) => (
                     <div key={idx} className="flex items-center gap-2">
                       <Check className="h-4 w-4 text-primary flex-shrink-0" />
