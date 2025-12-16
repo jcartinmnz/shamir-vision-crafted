@@ -8,29 +8,29 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Shamir Brand Colors */
+    /* Shamir Brand Colors - Updated */
     --background: 0 0% 97.3%; /* #F8FAFC */
-    --foreground: 222.2 47.4% 11.2%; /* #0F172A Slate 900 */
+    --foreground: 195 8% 32%; /* #4c5357 Gray */
 
     --card: 0 0% 100%; /* White */
-    --card-foreground: 222.2 47.4% 11.2%;
+    --card-foreground: 195 8% 32%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 47.4% 11.2%;
+    --popover-foreground: 195 8% 32%;
 
-    /* Shamir Red Primary */
-    --primary: 355 95% 45%; /* #E30613 */
+    /* Shamir Red Primary - #ef3435 */
+    --primary: 360 85% 57%; /* #ef3435 */
     --primary-foreground: 0 0% 100%;
-    --primary-hover: 355 95% 35%; /* #B1050E darken */
+    --primary-hover: 360 85% 47%; /* darker red */
 
-    /* Slate Gray Secondary */
-    --secondary: 215 16.3% 46.9%; /* #6B7280 Slate 500 */
+    /* Gray Secondary - #4c5357 */
+    --secondary: 195 8% 32%; /* #4c5357 */
     --secondary-foreground: 0 0% 100%;
 
     --muted: 210 40% 96.1%;
-    --muted-foreground: 217.9 10.6% 64.9%; /* #64748B Slate 500 */
+    --muted-foreground: 195 8% 42%; /* Lighter gray */
 
-    --accent: 355 95% 45%;
+    --accent: 360 85% 57%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
@@ -38,20 +38,20 @@ All colors MUST be HSL.
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 355 95% 45%;
+    --ring: 360 85% 57%;
 
     --radius: 1rem;
 
-    /* Dark footer/highlight */
-    --dark-surface: 0 0% 6.7%; /* #111111 */
-    --dark-surface-foreground: 0 0% 97.3%;
+    /* Dark footer/highlight - Black */
+    --dark-surface: 0 0% 0%; /* Pure black */
+    --dark-surface-foreground: 0 0% 100%;
 
     /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .dark {
-    --background: 222.2 47.4% 11.2%;
+    --background: 0 0% 0%;
     --foreground: 0 0% 97.3%;
 
     --card: 0 0% 6.7%;
@@ -60,17 +60,17 @@ All colors MUST be HSL.
     --popover: 0 0% 6.7%;
     --popover-foreground: 0 0% 97.3%;
 
-    --primary: 355 95% 45%;
+    --primary: 360 85% 57%;
     --primary-foreground: 0 0% 100%;
-    --primary-hover: 355 95% 35%;
+    --primary-hover: 360 85% 47%;
 
-    --secondary: 215 16.3% 46.9%;
+    --secondary: 195 8% 32%;
     --secondary-foreground: 0 0% 100%;
 
     --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 217.9 10.6% 64.9%;
+    --muted-foreground: 195 8% 50%;
 
-    --accent: 355 95% 45%;
+    --accent: 360 85% 57%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 30.6%;
@@ -78,10 +78,10 @@ All colors MUST be HSL.
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 355 95% 45%;
+    --ring: 360 85% 57%;
 
-    --dark-surface: 0 0% 6.7%;
-    --dark-surface-foreground: 0 0% 97.3%;
+    --dark-surface: 0 0% 0%;
+    --dark-surface-foreground: 0 0% 100%;
   }
 }
 
