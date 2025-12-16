@@ -52,6 +52,10 @@ export default {
           DEFAULT: "hsl(var(--dark-surface))",
           foreground: "hsl(var(--dark-surface-foreground))",
         },
+        "dark-surface": {
+          DEFAULT: "hsl(var(--dark-surface))",
+          foreground: "hsl(var(--dark-surface-foreground))",
+        },
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],

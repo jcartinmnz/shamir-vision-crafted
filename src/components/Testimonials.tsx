@@ -24,29 +24,29 @@ const Testimonials = () => {
   ];
 
   return (
-    <section id="testimonios" className="py-16 lg:py-24 bg-muted/30">
+    <section id="testimonios" className="py-16 lg:py-24 bg-dark-surface">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl lg:text-5xl font-bold text-dark-surface-foreground mb-4">
             Lo que dicen de Shamir
           </h2>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className="hover:shadow-lg transition-all">
+            <Card key={index} className="hover:shadow-lg transition-all bg-white/5 border-white/10">
               <CardContent className="p-8">
                 <div className="flex gap-1 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <Star key={i} className="h-5 w-5 fill-primary text-primary" />
                   ))}
                 </div>
-                <p className="text-foreground mb-6 italic">
+                <p className="text-white/90 mb-6 italic">
                   "{testimonial.text}"
                 </p>
                 <div>
-                  <p className="font-bold text-foreground">{testimonial.name}</p>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="font-bold text-white">{testimonial.name}</p>
+                  <p className="text-sm text-white/60">
                     {testimonial.role}
                   </p>
                 </div>
