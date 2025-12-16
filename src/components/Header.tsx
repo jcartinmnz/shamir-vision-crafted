@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Phone, Menu, X } from "lucide-react";
+import shamirLogo from "@assets/shamir_logos_svg-blanco_1765927288009.png";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -18,11 +19,13 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-black">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-20 lg:h-24">
-          {/* Logo - Larger with Shamir in red */}
+          {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
-            <span className="text-3xl lg:text-4xl font-bold">
-              <span className="text-primary">Shamir</span>
-            </span>
+            <img 
+              src={shamirLogo} 
+              alt="Shamir" 
+              className="h-8 lg:h-10 w-auto"
+            />
           </div>
 
           {/* Desktop Navigation */}
