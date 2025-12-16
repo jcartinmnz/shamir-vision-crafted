@@ -10,6 +10,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { SiInstagram, SiFacebook } from "react-icons/si";
 
 const Contact = () => {
   return (
@@ -54,10 +55,44 @@ const Contact = () => {
                   <div>
                     <p className="font-semibold text-foreground">WhatsApp</p>
                     <a
-                      href="https://wa.me/525500000000"
+                      href="https://wa.me/50664706734"
                       className="text-muted-foreground hover:text-primary"
                     >
-                      +52 55 0000 0000
+                      +506 6470 6734
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="bg-primary/10 rounded-lg p-3">
+                    <SiInstagram className="h-6 w-6 text-primary" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-foreground">Instagram</p>
+                    <a
+                      href="https://www.instagram.com/shamircentroamerica/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground hover:text-primary"
+                    >
+                      @shamircentroamerica
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="bg-primary/10 rounded-lg p-3">
+                    <SiFacebook className="h-6 w-6 text-primary" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-foreground">Facebook</p>
+                    <a
+                      href="https://www.facebook.com/ShamirCentroamerica"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground hover:text-primary"
+                    >
+                      Shamir Centroamérica
                     </a>
                   </div>
                 </div>
