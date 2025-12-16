@@ -11,12 +11,15 @@ import {
 } from "@/components/ui/select";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { SiInstagram, SiFacebook } from "react-icons/si";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Contact = () => {
+  const { ref, isVisible } = useScrollAnimation();
+
   return (
     <section id="contacto" className="py-16 lg:py-24 bg-background">
-      <div className="container mx-auto px-4 lg:px-8">
-        <div className="text-center mb-12">
+      <div ref={ref} className="container mx-auto px-4 lg:px-8">
+        <div className={`text-center mb-12 animate-fade-up ${isVisible ? "is-visible" : ""}`}>
           <h2 className="text-3xl lg:text-5xl font-bold text-foreground mb-4">
             Contáctanos
           </h2>
@@ -27,7 +30,7 @@ const Contact = () => {
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Info */}
-          <div className="space-y-8">
+          <div className={`space-y-8 animate-fade-left ${isVisible ? "is-visible" : ""}`} style={{ transitionDelay: "100ms" }}>
             <div>
               <h3 className="text-2xl font-bold text-foreground mb-6">
                 Información de contacto
@@ -141,7 +144,7 @@ const Contact = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-card p-8 rounded-2xl border border-border shadow-lg">
+          <div className={`bg-card p-8 rounded-2xl border border-border shadow-lg animate-fade-right ${isVisible ? "is-visible" : ""}`} style={{ transitionDelay: "200ms" }}>
             <form className="space-y-6">
               <div className="space-y-2">
                 <Label htmlFor="name">Nombre completo</Label>

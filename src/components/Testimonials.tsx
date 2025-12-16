@@ -1,7 +1,10 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Star } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Testimonials = () => {
+  const { ref, isVisible } = useScrollAnimation();
+
   const testimonials = [
     {
       name: "Michael P.",
@@ -25,8 +28,8 @@ const Testimonials = () => {
 
   return (
     <section id="testimonios" className="py-16 lg:py-24 bg-dark-surface">
-      <div className="container mx-auto px-4 lg:px-8">
-        <div className="text-center mb-12">
+      <div ref={ref} className="container mx-auto px-4 lg:px-8">
+        <div className={`text-center mb-12 animate-fade-up ${isVisible ? "is-visible" : ""}`}>
           <h2 className="text-3xl lg:text-5xl font-bold text-dark-surface-foreground mb-4">
             Lo que dicen de Shamir
           </h2>
@@ -34,7 +37,11 @@ const Testimonials = () => {
 
         <div className="grid md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className="hover:shadow-lg transition-all bg-white/5 border-white/10">
+            <Card 
+              key={index} 
+              className={`hover:shadow-lg transition-all bg-white/5 border-white/10 animate-fade-up ${isVisible ? "is-visible" : ""}`}
+              style={{ transitionDelay: `${index * 150}ms` }}
+            >
               <CardContent className="p-8">
                 <div className="flex gap-1 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (

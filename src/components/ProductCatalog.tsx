@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Check, Eye, Sparkles, Glasses, Layers, Brain } from "lucide-react";
 import { useState } from "react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 interface Product {
   id: string;
@@ -124,11 +125,12 @@ const comparisonData = [
 
 const ProductCatalog = () => {
   const [expandedAccordion, setExpandedAccordion] = useState<string | null>(null);
+  const { ref, isVisible } = useScrollAnimation();
 
   return (
     <section id="productos" className="py-20 lg:py-32 bg-background">
-      <div className="container mx-auto px-4 lg:px-8">
-        <div className="text-center mb-16">
+      <div ref={ref} className="container mx-auto px-4 lg:px-8">
+        <div className={`text-center mb-16 animate-fade-up ${isVisible ? "is-visible" : ""}`}>
           <Badge variant="outline" className="mb-4">Catálogo Completo</Badge>
           <h2 className="text-3xl lg:text-5xl font-bold text-foreground mb-4">
             Descubre la Gama <span className="text-primary">Shamir</span>
@@ -139,10 +141,11 @@ const ProductCatalog = () => {
         </div>
 
         <div className="flex flex-wrap justify-center gap-6 mb-20">
-          {products.map((product) => (
+          {products.map((product, index) => (
             <Card 
               key={product.id} 
-              className="group border-border hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 overflow-hidden flex flex-col h-full w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
+              className={`group border-border hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 overflow-hidden flex flex-col h-full w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] animate-fade-up ${isVisible ? "is-visible" : ""}`}
+              style={{ transitionDelay: `${index * 100}ms` }}
             >
               <div className="relative h-48 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 flex items-center justify-center">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10" />

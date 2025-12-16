@@ -1,6 +1,9 @@
 import { Maximize2, Sparkles, User, Monitor } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Benefits = () => {
+  const { ref, isVisible } = useScrollAnimation();
+  
   const benefits = [
     {
       icon: Maximize2,
@@ -26,8 +29,8 @@ const Benefits = () => {
 
   return (
     <section id="beneficios" className="relative z-0 py-16 lg:py-24 bg-background">
-      <div className="container mx-auto px-4 lg:px-8">
-        <div className="text-center mb-12">
+      <div ref={ref} className="container mx-auto px-4 lg:px-8">
+        <div className={`text-center mb-12 animate-fade-up ${isVisible ? "is-visible" : ""}`}>
           <h2 className="text-3xl lg:text-5xl font-bold text-foreground mb-4">
             Beneficios de las lentes Shamir
           </h2>
@@ -39,7 +42,8 @@ const Benefits = () => {
             return (
               <div
                 key={index}
-                className="bg-card p-8 rounded-2xl border border-border hover:shadow-lg transition-all duration-300"
+                className={`bg-card p-8 rounded-2xl border border-border hover:shadow-lg transition-all duration-300 animate-fade-up ${isVisible ? "is-visible" : ""}`}
+                style={{ transitionDelay: `${index * 100}ms` }}
               >
                 <div className="bg-primary/10 w-16 h-16 rounded-xl flex items-center justify-center mb-6">
                   <Icon className="h-8 w-8 text-primary" />
