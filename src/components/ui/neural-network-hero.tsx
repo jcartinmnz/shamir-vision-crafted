@@ -36,11 +36,18 @@ class WebGLErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryStat
 // Gradient fallback when WebGL is not available
 function GradientFallback() {
   return (
-    <div className="absolute inset-0 -z-10 w-full h-full bg-gradient-to-br from-gray-900 via-red-950/30 to-black">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(220,38,38,0.15),transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(220,38,38,0.1),transparent_50%)]" />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30" />
-    </div>
+    <div 
+      className="absolute inset-0 w-full h-full"
+      style={{
+        background: `
+          radial-gradient(ellipse 100% 80% at 15% 50%, rgba(180,20,60,0.7), transparent 50%),
+          radial-gradient(ellipse 80% 60% at 60% 30%, rgba(120,10,50,0.5), transparent 45%),
+          radial-gradient(ellipse 70% 70% at 25% 75%, rgba(100,5,40,0.6), transparent 55%),
+          radial-gradient(ellipse 50% 50% at 85% 60%, rgba(80,0,35,0.4), transparent 45%),
+          linear-gradient(135deg, #1a0a0f 0%, #0d0507 50%, #000000 100%)
+        `
+      }}
+    />
   );
 }
 
@@ -220,16 +227,33 @@ function ShaderPlane() {
   );
 }
 
+// Check if WebGL is available
+function isWebGLAvailable(): boolean {
+  try {
+    const canvas = document.createElement('canvas');
+    return !!(
+      window.WebGLRenderingContext &&
+      (canvas.getContext('webgl') || canvas.getContext('experimental-webgl'))
+    );
+  } catch (e) {
+    return false;
+  }
+}
+
 function ShaderBackground() {
   const canvasRef = useRef<HTMLDivElement | null>(null);
   const [isReady, setIsReady] = useState(false);
+  const [webGLSupported, setWebGLSupported] = useState<boolean | null>(null);
   
   const camera = useMemo(() => ({ position: [0, 0, 1] as [number, number, number], fov: 75, near: 0.1, far: 1000 }), []);
   
   useEffect(() => {
-    if (!canvasRef.current) return;
+    setWebGLSupported(isWebGLAvailable());
+  }, []);
+  
+  useEffect(() => {
+    if (!canvasRef.current || webGLSupported === null) return;
     
-    // Simple fade in effect
     const element = canvasRef.current;
     element.style.opacity = '0';
     element.style.filter = 'blur(20px)';
@@ -244,20 +268,28 @@ function ShaderBackground() {
     }, 300);
     
     return () => clearTimeout(timer);
-  }, []);
+  }, [webGLSupported]);
+  
+  if (webGLSupported === null) {
+    return <div className="bg-black absolute inset-0 -z-10 w-full h-full" aria-hidden />;
+  }
   
   return (
     <div ref={canvasRef} className="bg-black absolute inset-0 -z-10 w-full h-full" aria-hidden>
-      <WebGLErrorBoundary fallback={<GradientFallback />}>
-        <Canvas
-          camera={camera}
-          gl={{ antialias: true, alpha: false }}
-          dpr={[1, 2]}
-          style={{ width: '100%', height: '100%' }}
-        >
-          <ShaderPlane />
-        </Canvas>
-      </WebGLErrorBoundary>
+      {webGLSupported ? (
+        <WebGLErrorBoundary fallback={<GradientFallback />}>
+          <Canvas
+            camera={camera}
+            gl={{ antialias: true, alpha: false }}
+            dpr={[1, 2]}
+            style={{ width: '100%', height: '100%' }}
+          >
+            <ShaderPlane />
+          </Canvas>
+        </WebGLErrorBoundary>
+      ) : (
+        <GradientFallback />
+      )}
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30" />
     </div>
   );
