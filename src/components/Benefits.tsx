@@ -36,17 +36,17 @@ const Benefits = () => {
         className="absolute inset-0 bg-black"
         initial={{ opacity: 1 }}
         animate={isInView ? { opacity: 0 } : { opacity: 1 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        transition={{ duration: 1.2, ease: "easeOut" }}
       />
       
       <motion.div
         className="relative py-16 lg:py-24 bg-background"
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-        transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+        transition={{ duration: 1.2, delay: 0.5, ease: "easeOut" }}
       >
         <div className="container mx-auto px-4 lg:px-8">
-          <BlurFade delay={0.5} inView duration={0.6}>
+          <BlurFade delay={1.0} inView duration={0.8}>
             <div className="text-center mb-12">
               <h2 className="text-3xl lg:text-5xl font-bold text-foreground mb-4">
                 Beneficios de las lentes Shamir
@@ -58,7 +58,7 @@ const Benefits = () => {
             {benefits.map((benefit, index) => {
               const Icon = benefit.icon;
               return (
-                <BlurFade key={index} delay={0.7 + index * 0.15} inView duration={0.5}>
+                <BlurFade key={index} delay={1.3 + index * 0.2} inView duration={0.6}>
                   <div className="bg-card p-8 rounded-2xl border border-border hover:shadow-lg transition-all duration-300 h-full">
                     <div className="bg-primary/10 w-16 h-16 rounded-xl flex items-center justify-center mb-6">
                       <Icon className="h-8 w-8 text-primary" />
