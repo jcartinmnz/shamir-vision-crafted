@@ -297,7 +297,7 @@ function ShaderBackground() {
 
 // ===================== HERO =====================
 interface HeroProps {
-  title: string;
+  title: React.ReactNode;
   description: string;
   badgeText?: string;
   badgeLabel?: string;
