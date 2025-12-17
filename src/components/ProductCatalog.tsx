@@ -1,9 +1,16 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Check, Eye, Sparkles, Glasses, Layers, Brain } from "lucide-react";
+import { Check } from "lucide-react";
 import { useState } from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { BlurFade } from "@/components/ui/blur-fade";
+
+import teenageGirlImage from "../../attached_assets/u5629859764_A_lifestyle_photo_of_a_teenage_girl_wearing_trend__1765981589191.png";
+import outdoorManImage from "../../attached_assets/u5629859764_A_dynamic_outdoor_shot_of_a_middle-aged_man_weari__1765981589193.png";
+import woman40sImage from "../../attached_assets/u5629859764_A_high-detail_photo_of_a_woman_in_her_40s_wearing__1765981589194.png";
+import streetManImage from "../../attached_assets/u5629859764_A_street-style_shot_of_a_man_with_rectangular_eye__1765981589194.png";
+import youngWomanImage from "../../attached_assets/u5629859764_A_candid_photo_of_a_young_woman_wearing_thin-rimm__1765981589195.png";
 
 interface Product {
   id: string;
@@ -12,7 +19,7 @@ interface Product {
   description: string;
   benefits: string[];
   slogan: string;
-  icon: React.ReactNode;
+  image: string;
   badge?: string;
 }
 
@@ -29,7 +36,7 @@ const products: Product[] = [
       "Tecnología Free-Form"
     ],
     slogan: "Visión en Alta Definición Real",
-    icon: <Eye className="h-10 w-10 text-primary" />
+    image: teenageGirlImage
   },
   {
     id: "vision-sencilla",
@@ -43,7 +50,7 @@ const products: Product[] = [
       "Diseños digitales"
     ],
     slogan: "Claridad Simple, Calidad Superior",
-    icon: <Glasses className="h-10 w-10 text-primary" />
+    image: outdoorManImage
   },
   {
     id: "monofocales",
@@ -57,7 +64,7 @@ const products: Product[] = [
       "Diseño estético"
     ],
     slogan: "Tu Visión, Tu Medida Exacta",
-    icon: <Sparkles className="h-10 w-10 text-primary" />
+    image: woman40sImage
   },
   {
     id: "bifocales",
@@ -71,7 +78,7 @@ const products: Product[] = [
       "Compatible con tratamientos"
     ],
     slogan: "Dos Visiones, Una Experiencia Perfecta",
-    icon: <Layers className="h-10 w-10 text-primary" />
+    image: streetManImage
   },
   {
     id: "progresivos",
@@ -85,7 +92,7 @@ const products: Product[] = [
       "Diseños especializados"
     ],
     slogan: "Todas las Distancias, Una Sola Mirada",
-    icon: <Brain className="h-10 w-10 text-primary" />,
+    image: youngWomanImage,
     badge: "CON INTELIGENCIA ARTIFICIAL"
   }
 ];
@@ -147,11 +154,15 @@ const ProductCatalog = () => {
               className={`group border-border hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 overflow-hidden flex flex-col h-full w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] animate-fade-up ${isVisible ? "is-visible" : ""}`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <div className="relative h-48 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 flex items-center justify-center">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10" />
-                <div className="relative z-10 p-4 bg-white/80 dark:bg-black/50 rounded-2xl backdrop-blur-sm">
-                  {product.icon}
-                </div>
+              <div className="relative h-56 overflow-hidden">
+                <BlurFade delay={0.1 + index * 0.15} inView>
+                  <img 
+                    src={product.image} 
+                    alt={product.title}
+                    className="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </BlurFade>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                 {product.badge && (
                   <Badge className="absolute top-4 right-4 bg-primary text-white text-xs">
                     {product.badge}
