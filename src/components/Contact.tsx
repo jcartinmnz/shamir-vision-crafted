@@ -41,21 +41,6 @@ const Contact = () => {
                     <Phone className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <p className="font-semibold text-foreground">Teléfono</p>
-                    <a
-                      href="tel:+525500000000"
-                      className="text-muted-foreground hover:text-primary"
-                    >
-                      +52 55 0000 0000
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="bg-primary/10 rounded-lg p-3">
-                    <Phone className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
                     <p className="font-semibold text-foreground">WhatsApp</p>
                     <a
                       href="https://wa.me/50664706734"
@@ -107,10 +92,10 @@ const Contact = () => {
                   <div>
                     <p className="font-semibold text-foreground">Email</p>
                     <a
-                      href="mailto:contacto@tudominio.com"
+                      href="mailto:info@shamircentroamerica.com"
                       className="text-muted-foreground hover:text-primary"
                     >
-                      contacto@tudominio.com
+                      info@shamircentroamerica.com
                     </a>
                   </div>
                 </div>
@@ -122,7 +107,7 @@ const Contact = () => {
                   <div>
                     <p className="font-semibold text-foreground">Dirección</p>
                     <p className="text-muted-foreground">
-                      Calle Ejemplo 123, CDMX
+                      WW78+M52, C. 12, San José, San Sebastián, Costa Rica
                     </p>
                   </div>
                 </div>
@@ -134,9 +119,9 @@ const Contact = () => {
                   <div>
                     <p className="font-semibold text-foreground">Horarios</p>
                     <p className="text-muted-foreground">
-                      Lun–Vie: 10:00–19:00
+                      Lun–Vie: 8:00–17:00
                     </p>
-                    <p className="text-muted-foreground">Sáb: 10:00–15:00</p>
+                    <p className="text-muted-foreground">Sáb: 8:00–12:00</p>
                   </div>
                 </div>
               </div>

@@ -49,7 +49,7 @@ const Benefits = () => {
           <BlurFade delay={1.0} inView duration={0.8}>
             <div className="text-center mb-12">
               <h2 className="text-3xl lg:text-5xl font-bold text-foreground mb-4">
-                Beneficios de las lentes Shamir
+                Beneficios de los lentes Shamir
               </h2>
             </div>
           </BlurFade>

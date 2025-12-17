@@ -51,15 +51,15 @@ const Footer = () => {
           <div>
             <h3 className="font-bold text-lg mb-4">Contacto</h3>
             <ul className="space-y-2 text-sm text-white/70">
-              <li>Calle Ejemplo 123, CDMX</li>
+              <li>WW78+M52, C. 12, San José, San Sebastián, Costa Rica</li>
               <li>
-                <a href="tel:+525500000000" className="hover:text-primary transition-colors">
-                  +52 55 0000 0000
+                <a href="https://wa.me/50664706734" className="hover:text-primary transition-colors">
+                  +506 6470 6734
                 </a>
               </li>
               <li>
-                <a href="mailto:contacto@tudominio.com" className="hover:text-primary transition-colors">
-                  contacto@tudominio.com
+                <a href="mailto:info@shamircentroamerica.com" className="hover:text-primary transition-colors">
+                  info@shamircentroamerica.com
                 </a>
               </li>
             </ul>
@@ -69,14 +69,14 @@ const Footer = () => {
           <div>
             <h3 className="font-bold text-lg mb-4">Horarios</h3>
             <ul className="space-y-2 text-sm text-white/70 mb-6">
-              <li>Lunes - Viernes: 10:00 - 19:00</li>
-              <li>Sábado: 10:00 - 15:00</li>
+              <li>Lunes - Viernes: 8:00 - 17:00</li>
+              <li>Sábado: 8:00 - 12:00</li>
               <li>Domingo: Cerrado</li>
             </ul>
 
             <div className="flex gap-4">
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/shamircentroamerica/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-white/10 hover:bg-primary transition-colors p-2 rounded-lg"
@@ -85,7 +85,7 @@ const Footer = () => {
                 <Instagram className="h-5 w-5" />
               </a>
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/ShamirCentroamerica"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-white/10 hover:bg-primary transition-colors p-2 rounded-lg"
