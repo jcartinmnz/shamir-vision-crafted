@@ -1,5 +1,4 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Star } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Testimonials = () => {
@@ -8,21 +7,18 @@ const Testimonials = () => {
   const testimonials = [
     {
       name: "Michael P.",
-      role: "Usuario progresivo",
+      lensType: "Autograph Intelligence™",
       text: "Campo de visión amplio y nítido en todas las distancias. La adaptación fue inmediata, sin mareos ni molestias.",
-      rating: 5,
     },
     {
       name: "Conductor GT",
-      role: "Driver Intelligence™",
+      lensType: "Driver Intelligence™",
       text: "Anticipación más rápida en carretera y menos deslumbramiento nocturno. Un cambio notable en seguridad.",
-      rating: 5,
     },
     {
       name: "Usuario oficina",
-      role: "Workspace™",
+      lensType: "Workspace™",
       text: "Menos fatiga y postura más natural frente al PC. Trabajo todo el día sin cansancio visual.",
-      rating: 5,
     },
   ];
 
@@ -43,18 +39,13 @@ const Testimonials = () => {
               style={{ transitionDelay: `${index * 150}ms` }}
             >
               <CardContent className="p-8">
-                <div className="flex gap-1 mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 fill-primary text-primary" />
-                  ))}
-                </div>
-                <p className="text-white/90 mb-6 italic">
+                <p className="text-white/90 mb-6 italic leading-relaxed">
                   "{testimonial.text}"
                 </p>
                 <div>
                   <p className="font-bold text-white">{testimonial.name}</p>
-                  <p className="text-sm text-white/60">
-                    {testimonial.role}
+                  <p className="text-sm font-medium text-primary">
+                    {testimonial.lensType}
                   </p>
                 </div>
               </CardContent>
