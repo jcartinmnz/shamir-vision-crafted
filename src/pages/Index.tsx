@@ -17,7 +17,7 @@ const Index = () => {
       <Header />
       <NeuralNetworkHero 
         title={<>Visión en alta<br />definición a tu medida</>}
-        description="Lentes Shamir de talla digital con IA y Freeform para campos de visión más amplios, menos distorsión y máxima nitidez en todas las distancias."
+        description={<>Lentes Shamir de talla digital con IA y Freeform para campos de visión más amplios,<br />menos distorsión y máxima nitidez en todas las distancias.</>}
         badgeLabel="Shamir"
         badgeText="Visión Perfecta · Toque Personal"
         ctaButtons={[
