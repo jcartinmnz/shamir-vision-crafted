@@ -6,17 +6,17 @@ const Testimonials = () => {
 
   const testimonials = [
     {
-      name: "Michael P.",
+      name: "Arturo Davilla (Via Instagram)",
       lensType: "Autograph Intelligence™",
       text: "Campo de visión amplio y nítido en todas las distancias. La adaptación fue inmediata, sin mareos ni molestias.",
     },
     {
-      name: "Conductor GT",
+      name: "Ligia Rodriguez (via Facebook)",
       lensType: "Driver Intelligence™",
       text: "Anticipación más rápida en carretera y menos deslumbramiento nocturno. Un cambio notable en seguridad.",
     },
     {
-      name: "Usuario oficina",
+      name: "Alejandra Retana (Via Facebook)",
       lensType: "Workspace™",
       text: "Menos fatiga y postura más natural frente al PC. Trabajo todo el día sin cansancio visual.",
     },
