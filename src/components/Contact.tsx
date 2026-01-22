@@ -32,8 +32,9 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("https://owluxe-n8n.d5fmdt.easypanel.host/webhook/LandingShamir", {
+      await fetch("https://owluxe-n8n.d5fmdt.easypanel.host/webhook/LandingShamir", {
         method: "POST",
+        mode: "no-cors",
         headers: {
           "Content-Type": "application/json",
         },
@@ -44,21 +45,17 @@ const Contact = () => {
         }),
       });
 
-      if (response.ok) {
-        toast({
-          title: "Mensaje enviado",
-          description: "Nos pondremos en contacto contigo pronto.",
-        });
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          lensType: "",
-          message: "",
-        });
-      } else {
-        throw new Error("Error al enviar");
-      }
+      toast({
+        title: "Mensaje enviado",
+        description: "Nos pondremos en contacto contigo pronto.",
+      });
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        lensType: "",
+        message: "",
+      });
     } catch (error) {
       toast({
         title: "Error",
