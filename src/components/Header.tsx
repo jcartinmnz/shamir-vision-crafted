@@ -60,10 +60,12 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden lg:block">
-            <Button variant="default" size="lg" className="gap-2">
-              <Phone className="h-4 w-4" />
-              Cotiza tus lentes
-            </Button>
+            <a href="https://wa.me/50664706734?text=Hola%2C%20me%20gustar%C3%ADa%20cotizar%20lentes%20Shamir" target="_blank" rel="noopener noreferrer">
+              <Button variant="default" size="lg" className="gap-2" data-testid="button-cotiza-desktop">
+                <Phone className="h-4 w-4" />
+                Cotiza tus lentes
+              </Button>
+            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -90,10 +92,12 @@ const Header = () => {
                   {item.name}
                 </a>
               ))}
-              <Button variant="default" className="w-full gap-2 mt-4">
-                <Phone className="h-4 w-4" />
-                Cotiza tus lentes
-              </Button>
+              <a href="https://wa.me/50664706734?text=Hola%2C%20me%20gustar%C3%ADa%20cotizar%20lentes%20Shamir" target="_blank" rel="noopener noreferrer">
+                <Button variant="default" className="w-full gap-2 mt-4" data-testid="button-cotiza-mobile">
+                  <Phone className="h-4 w-4" />
+                  Cotiza tus lentes
+                </Button>
+              </a>
             </div>
           </nav>
         )}
