@@ -32,9 +32,8 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      await fetch("https://owluxe-n8n.d5fmdt.easypanel.host/webhook/LandingShamir", {
+      await fetch("/api/webhook/LandingShamir", {
         method: "POST",
-        mode: "no-cors",
         headers: {
           "Content-Type": "application/json",
         },
