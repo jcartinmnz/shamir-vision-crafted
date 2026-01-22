@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -9,12 +10,65 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Loader2 } from "lucide-react";
 import { SiInstagram, SiFacebook } from "react-icons/si";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
   const { ref, isVisible } = useScrollAnimation();
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    lensType: "",
+    message: "",
+  });
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("https://owluxe-n8n.d5fmdt.easypanel.host/webhook/LandingShamir", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...formData,
+          timestamp: new Date().toISOString(),
+          source: "Landing Page Shamir",
+        }),
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Mensaje enviado",
+          description: "Nos pondremos en contacto contigo pronto.",
+        });
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          lensType: "",
+          message: "",
+        });
+      } else {
+        throw new Error("Error al enviar");
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "No se pudo enviar el mensaje. Intenta de nuevo.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <section id="contacto" className="py-16 lg:py-24 bg-background">
@@ -130,26 +184,52 @@ const Contact = () => {
 
           {/* Contact Form */}
           <div className={`bg-card p-8 rounded-2xl border border-border shadow-lg animate-fade-right ${isVisible ? "is-visible" : ""}`} style={{ transitionDelay: "200ms" }}>
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-2">
                 <Label htmlFor="name">Nombre completo</Label>
-                <Input id="name" placeholder="Juan Pérez" />
+                <Input
+                  id="name"
+                  placeholder="Juan Pérez"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  required
+                  data-testid="input-name"
+                />
               </div>
 
               <div className="space-y-2">
                 <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" placeholder="tu@email.com" />
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="tu@email.com"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  required
+                  data-testid="input-email"
+                />
               </div>
 
               <div className="space-y-2">
                 <Label htmlFor="phone">Teléfono</Label>
-                <Input id="phone" type="tel" placeholder="+52 55 0000 0000" />
+                <Input
+                  id="phone"
+                  type="tel"
+                  placeholder="+506 0000 0000"
+                  value={formData.phone}
+                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                  required
+                  data-testid="input-phone"
+                />
               </div>
 
               <div className="space-y-2">
                 <Label htmlFor="lensType">Tipo de lente de interés</Label>
-                <Select>
-                  <SelectTrigger id="lensType">
+                <Select
+                  value={formData.lensType}
+                  onValueChange={(value) => setFormData({ ...formData, lensType: value })}
+                >
+                  <SelectTrigger id="lensType" data-testid="select-lens-type">
                     <SelectValue placeholder="Selecciona una opción" />
                   </SelectTrigger>
                   <SelectContent>
@@ -169,11 +249,21 @@ const Contact = () => {
                   id="message"
                   placeholder="Cuéntanos sobre tus necesidades visuales..."
                   rows={4}
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  data-testid="input-message"
                 />
               </div>
 
-              <Button type="submit" size="lg" className="w-full">
-                Enviar mensaje
+              <Button type="submit" size="lg" className="w-full" disabled={isSubmitting} data-testid="button-submit">
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Enviando...
+                  </>
+                ) : (
+                  "Enviar mensaje"
+                )}
               </Button>
             </form>
           </div>
